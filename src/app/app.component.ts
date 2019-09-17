@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { OverlayContainer } from '@angular/cdk/overlay';
 
 @Component({
   selector: 'app-root',
@@ -6,5 +7,13 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'taskmgr';
+  darkTheme = false;
+  constructor(private oc: OverlayContainer) {}
+  switchTheme(checked: boolean) {
+    this.darkTheme = checked;
+    // 针对弹出框。menu 的主题单独设置class。
+    this.oc
+      .getContainerElement()
+      .classList.add(checked ? 'my-dark-theme' : null);
+  }
 }

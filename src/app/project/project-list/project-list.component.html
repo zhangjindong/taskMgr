@@ -1,0 +1,23 @@
+<app-project-item
+  *ngFor="let project of projects"
+  [item]="project"
+  class="card"
+  (doInvite)="launchInviteDialog()"
+></app-project-item>
+<button
+  mat-fab
+  type="button"
+  class="fab-button"
+  (click)="openNewProjectDialog()"
+>
+  <mat-icon>add</mat-icon>
+</button>
+<!-- <button mat-icon-button [matMenuTriggerFor]="menu">
+    <mat-icon>more_vert</mat-icon>
+</button>
+<mat-menu #menu="matMenu">
+    <button mat-menu-item>
+        <mat-icon>dialpad</mat-icon>
+        <span>Redial</span>
+    </button>
+</mat-menu> -->
