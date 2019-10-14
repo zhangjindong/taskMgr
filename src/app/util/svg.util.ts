@@ -13,6 +13,10 @@ export const loadSvgResources = (ir: MatIconRegistry, ds: DomSanitizer) => {
     ds.bypassSecurityTrustResourceUrl(`${avatarDir}/avatars.svg`)
   );
   ir.addSvgIcon(
+    'unassigned',
+    ds.bypassSecurityTrustResourceUrl(`${avatarDir}/unassigned.svg`)
+  );
+  ir.addSvgIcon(
     'yunyin',
     ds.bypassSecurityTrustResourceUrl(`${sidebarDir}/运营管理.svg`)
   );

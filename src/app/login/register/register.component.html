@@ -1,14 +1,24 @@
-<form action="">
+<form [formGroup]="form" (ngSubmit)="onSubmit(form, $event)">
   <mat-card>
     <mat-card-header>
       <mat-card-title>注册：</mat-card-title>
     </mat-card-header>
     <mat-card-content>
       <mat-form-field appearance="" class="full-width">
-        <input matInput type="text" placeholder="您的Email" />
+        <input
+          matInput
+          type="text"
+          placeholder="您的Email"
+          formControlName="email"
+        />
       </mat-form-field>
       <mat-form-field appearance="" class="full-width">
-        <input matInput type="text" placeholder="您的姓名" />
+        <input
+          matInput
+          type="text"
+          placeholder="您的姓名"
+          formControlName="name"
+        />
       </mat-form-field>
       <mat-form-field appearance="" class="full-width">
         <input
@@ -16,6 +26,7 @@
           type="password"
           placeholder="您的密码"
           autocomplete="current-password"
+          formControlName="password"
         />
       </mat-form-field>
       <mat-form-field appearance="" class="full-width">
@@ -24,17 +35,27 @@
           type="password"
           placeholder="重新输入您的密码"
           autocomplete="current-password"
-        />
-      </mat-form-field>
+          formControlName="repeat"
+        /> </mat-form-field
+      ><app-image-list-select
+        [cols]="6"
+        [title]="'选择头像'"
+        [items]="items"
+        [selected]=""
+        [useSvgIcon]="true"
+        formControlName="avatar"
+      >
+      </app-image-list-select>
+      <!-- 
       <mat-grid-list cols="6" rowHeight="1:1">
         <mat-grid-tile
           *ngFor="let item of items"
         ><mat-icon class="avatar" [svgIcon]="item"></mat-icon>
         </mat-grid-tile>
-      </mat-grid-list>
-      <button mat-raised-button type="button" color="primary">注册</button>
+      </mat-grid-list> -->
+      <button mat-raised-button type="submit" color="primary">注册</button>
     </mat-card-content>
-    <mat-card-actions class="text-right">
+    <mat-card-actions >
       <p>还没有注册账号？<a href="http://">登录</a></p>
       <p>忘记密码？<a href="http://">找回</a></p>
     </mat-card-actions>

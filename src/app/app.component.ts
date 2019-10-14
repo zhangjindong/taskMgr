@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 import { OverlayContainer } from '@angular/cdk/overlay';
-
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -8,12 +7,19 @@ import { OverlayContainer } from '@angular/cdk/overlay';
 })
 export class AppComponent {
   darkTheme = false;
+  squareStatus: string;
+
   constructor(private oc: OverlayContainer) {}
+
   switchTheme(checked: boolean) {
     this.darkTheme = checked;
     // 针对弹出框。menu 的主题单独设置class。
     this.oc
       .getContainerElement()
       .classList.add(checked ? 'my-dark-theme' : null);
+  }
+
+  onClick() {
+    this.squareStatus = this.squareStatus === 'green' ? 'red' : 'green';
   }
 }

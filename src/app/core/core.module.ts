@@ -9,11 +9,25 @@ import { FooterComponent } from './footer/footer.component';
 import { HeaderComponent } from './header/header.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
 
+import 'hammerjs';
+import { AppRoutingModule } from '../app-routing.module';
 
 @NgModule({
   declarations: [HeaderComponent, FooterComponent, SidebarComponent],
-  imports: [HttpClientModule, BrowserAnimationsModule, SharedModule],
-  exports: [HeaderComponent, FooterComponent, SidebarComponent, SharedModule]
+  imports: [
+    HttpClientModule,
+    SharedModule,
+    AppRoutingModule,
+    BrowserAnimationsModule
+  ],
+  exports: [
+    HeaderComponent,
+    FooterComponent,
+    SidebarComponent,
+    AppRoutingModule,
+    BrowserAnimationsModule
+  ],
+  providers: [{ provide: 'BASE_CONFIG', useValue: 'http://localhost:3000' }]
 })
 export class CoreModule {
   /**

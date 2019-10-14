@@ -1,6 +1,6 @@
 <mat-sidenav-container [class.my-dark-theme]="darkTheme">
   <mat-sidenav #sidenav>
-    <app-sidebar></app-sidebar>
+    <app-sidebar (doNavClick)="sidenav.close()"></app-sidebar>
   </mat-sidenav>
   <mat-sidenav-content>
     <div class="site">

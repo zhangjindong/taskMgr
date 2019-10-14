@@ -1,15 +1,11 @@
 .card {
-  height: 360px;
   flex: 0 0 360px;
   margin: 10px;
 }
-:host {
+.container {
   display: flex;
   flex-direction: row;
   flex-wrap: warp;
-  align-items: center;
-  width:100%;
-  height: 100%;
 }
 .fab-button {
   position: fixed;

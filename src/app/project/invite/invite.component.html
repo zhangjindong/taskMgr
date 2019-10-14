@@ -11,13 +11,19 @@
     </mat-form-field>
   </div>
   <div mat-dialog-actions>
-    <button mat-raised-button type="button" (click)="onClick()">保存</button>
+    <button mat-raised-button type="button" color="primary" (click)="onClick()">
+      保存
+    </button>
     <button mat-button type="button" mat-dialog-close>关闭</button>
   </div>
 </form>
 
-<mat-autocomplete role="combobox" #autocomplete="matAutocomplete" [displayWith]="displayUser">
-  <mat-option *ngFor="let item of items" [value]="item" >
+<mat-autocomplete
+  role="combobox"
+  #autocomplete="matAutocomplete"
+  [displayWith]="displayUser"
+>
+  <mat-option *ngFor="let item of items" [value]="item">
     <span>{{ item.name }}</span>
   </mat-option>
 </mat-autocomplete>

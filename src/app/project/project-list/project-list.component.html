@@ -1,9 +1,13 @@
-<app-project-item
-  *ngFor="let project of projects"
-  [item]="project"
-  class="card"
-  (doInvite)="launchInviteDialog()"
-></app-project-item>
+<div class="container" [@listAnim]="projects.length">
+  <app-project-item
+    *ngFor="let project of projects"
+    [item]="project"
+    class="card"
+    (doInvite)="launchInviteDialog()"
+    (doEdit)="launchUpdateDialog(project)"
+    (doDel)="launchConfirmDialog(project)"
+  ></app-project-item>
+</div>
 <button
   mat-fab
   type="button"
