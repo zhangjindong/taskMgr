@@ -8,7 +8,7 @@ import { loadSvgResources } from '../util/svg.util';
 import { FooterComponent } from './footer/footer.component';
 import { HeaderComponent } from './header/header.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
-
+import '../util/debug.util';
 import 'hammerjs';
 import { AppRoutingModule } from '../app-routing.module';
 
@@ -27,7 +27,9 @@ import { AppRoutingModule } from '../app-routing.module';
     AppRoutingModule,
     BrowserAnimationsModule
   ],
-  providers: [{ provide: 'BASE_CONFIG', useValue: 'http://localhost:3000' }]
+  providers: [
+    { provide: 'BASE_CONFIG', useValue: { uri: 'http://localhost:3000' } }
+  ]
 })
 export class CoreModule {
   /**

@@ -24,18 +24,18 @@ import { cardAnim } from '../../anims/card.anim';
 export class ProjectItemComponent implements OnInit {
   @Input() item: any;
   @Output() doInvite = new EventEmitter<void>();
-  @Output() doEdit = new EventEmitter<void>();
-  @Output() doDel = new EventEmitter<void>();
+  @Output() doEdit = new EventEmitter<any>();
+  @Output() doDel = new EventEmitter<any>();
 
   @HostBinding('@card') cardState = 'out';
 
   @HostListener('mouseenter', ['$event.target'])
-  onMouseEnter() {
+  onMouseEnter(ev: Event) {
     this.cardState = 'hover';
   }
 
   @HostListener('mouseleave', ['$event.target'])
-  onMouseLeave() {
+  onMouseLeave(ev: Event) {
     this.cardState = 'out';
   }
   constructor() {}
@@ -46,10 +46,10 @@ export class ProjectItemComponent implements OnInit {
     this.doInvite.emit();
   }
   onEditClick() {
-    this.doEdit.emit();
+    this.doEdit.emit(null);
   }
 
   onDelClick() {
-    this.doDel.emit();
+    this.doDel.emit(null);
   }
 }

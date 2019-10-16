@@ -17,6 +17,7 @@ export class QuickTaskComponent implements OnInit {
   constructor() {}
 
   ngOnInit() {}
+
   @HostListener('keyup.enter')
   sendQuickTask() {
     if (!this.desc || this.desc.length === 0 || !this.desc.trim()) {

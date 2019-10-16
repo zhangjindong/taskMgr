@@ -6,6 +6,8 @@ import {
   FormControl,
   ValidationErrors
 } from '@angular/forms';
+import { QuoteService } from '../../services/quote.service';
+import { Quote } from '../../domain/quote.model';
 
 @Component({
   selector: 'app-login',
@@ -14,7 +16,15 @@ import {
 })
 export class LoginComponent implements OnInit {
   form: FormGroup;
-  constructor(private fb: FormBuilder) {}
+  quote: Quote = {
+    cn: '网球内心游戏：高峰表现心理方面的经典指南',
+    en:
+      'The Inner Game of Tennis: The Classic Guide to the Mental Side of Peak  Performance',
+    pic: '/assets/KmTCFx8WwuseQxEn9.jpg'
+  };
+  constructor(private fb: FormBuilder, private quoteService$: QuoteService) {
+    this.quoteService$.getQuote().subscribe(q => (this.quote = q));
+  }
 
   ngOnInit() {
     this.form = this.fb.group({

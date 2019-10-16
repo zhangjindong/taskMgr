@@ -26,4 +26,5 @@ export class RegisterComponent implements OnInit {
       avatar: [img]
     });
   }
+  onSubmit({ value, valid }, ev: Event) {}
 }

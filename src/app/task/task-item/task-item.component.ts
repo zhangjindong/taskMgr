@@ -20,15 +20,15 @@ export class TaskItemComponent implements OnInit {
   widerPriority = 'in';
   @Input() item: any;
   @Input() avatar: any;
-  @Output() taskClick = new EventEmitter<void>();
+  @Output() taskClick = new EventEmitter<any>();
 
   @HostListener('mouseenter', ['$event.target'])
-  onMouseEnter() {
+  onMouseEnter(ev: Event) {
     this.widerPriority = 'out';
   }
 
   @HostListener('mouseleave', ['$event.target'])
-  onMouseLeave() {
+  onMouseLeave(ev: Event) {
     this.widerPriority = 'in';
   }
   constructor() {}
@@ -37,7 +37,7 @@ export class TaskItemComponent implements OnInit {
     this.avatar = this.item.owner ? this.item.owner.avatar : 'unassigned';
   }
   onItemClick() {
-    this.taskClick.emit();
+    this.taskClick.emit(null);
   }
   onCheckBoxClick(ev: Event) {
     ev.stopPropagation();
