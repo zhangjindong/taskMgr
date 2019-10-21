@@ -23,8 +23,14 @@ export class RegisterComponent implements OnInit {
       name: [''],
       password: [''],
       repeat: [''],
-      avatar: [img]
+      avatar: [img],
+      dateOfBirth: []
     });
   }
-  onSubmit({ value, valid }, ev: Event) {}
+  onSubmit({ value, valid }, ev: Event) {
+    ev.preventDefault();
+    if (!valid) {
+      console.log(value);
+    }
+  }
 }
